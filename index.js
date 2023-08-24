@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
-const db = require('./queries')
+const db = require('./db/controllers')
 const orm = require('./orm/controllers')
 
 const port = 3000

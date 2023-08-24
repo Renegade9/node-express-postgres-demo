@@ -10,7 +10,7 @@ const createUser = async (req, res) => {
     // TODO add validation
     const newUser = User.create(
         { email, fullName, age, employed } = req.body);
-    res.json(erq.body)
+    res.json(req.body)
 }
 
 const updateUser = async (req, res) => {
