@@ -20,12 +20,14 @@ app.get('/', (req, res) => {
 
 // PostgreSQL Routes directly using SQL
 app.get('/db/users', db.getUsers)
+app.get('/db/users/:id', db.getUser)
 app.post('/db/users', db.createUser)
 app.put('/db/users/:id', db.updateUser)
 app.delete('/db/users/:id', db.deleteUser)
 
 // Sequelize ORM Routes
 app.get('/orm/users', orm.getUsers)
+app.get('/orm/users/:email', orm.getUser);
 app.post('/orm/users', orm.createUser)
 app.put('/orm/users/:email', orm.updateUser)
 app.delete('/orm/users/:email', orm.deleteUser)

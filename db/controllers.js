@@ -18,6 +18,17 @@ const getUsers = (request, response) => {
     })
 }
 
+
+const getUser = (request, response) => {
+    const {id} = request.params;
+    pool.query('SELECT * FROM users WHERE id=$1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows[0])
+    })
+}
+
 const createUser = (request, response) => {
     // TODO validation
     const { name, email } = request.body
@@ -59,4 +70,4 @@ const deleteUser = (request, response) => {
     })
 }
 
-module.exports = { getUsers, createUser, updateUser, deleteUser }
+module.exports = { getUsers, getUser, createUser, updateUser, deleteUser }

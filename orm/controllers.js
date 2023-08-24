@@ -6,6 +6,13 @@ const getUsers = async (req, res) => {
     res.json(users)
 }
 
+const getUser = async (req, res) => {
+    const user = await User.findByPk(req.params.email);
+    res.json(user)
+}
+
+// TODO getUser ... findByPk else res.status(404).send()
+
 const createUser = async (req, res) => {
     // TODO add validation
     const newUser = User.create(
@@ -33,4 +40,4 @@ const deleteUser = async (req, res) => {
     res.json(req.body)
 }
 
-module.exports = { getUsers, createUser, updateUser, deleteUser }
+module.exports = { getUsers, getUser, createUser, updateUser, deleteUser }
